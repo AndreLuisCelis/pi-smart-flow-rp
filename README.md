@@ -2,6 +2,8 @@
 
 **Smart Flow** é um projeto desenvolvido para otimizar o fluxo de pacientes em prontos-socorros, utilizando tecnologias modernas para proporcionar uma experiência eficiente e escalável. O foco do projeto é a integração com dispositivos **IoT (Internet das Coisas)**, permitindo a coleta e exibição de dados em tempo real a partir de sensores e câmeras inteligentes.
 
+![Samrt Flow Screenshot](src/assets/smart-flow.png)
+
 ## 🚀 Tecnologias Utilizadas
 
 - **Angular**: Framework para construção da interface de usuário.
