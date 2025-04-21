@@ -3,7 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>SmartFlow ER</mat-toolbar>
+    <mat-toolbar>SmartFlow</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item  [routerLinkActive]="'link-actived'"routerLink="/home"> Monitoramento</a>
       <a mat-list-item [routerLinkActive]="'link-actived'" routerLink="historico">Histórico</a>
