@@ -1,0 +1,56 @@
+.monitoramento {
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 85vh;
+}
+.monitoramento h1 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid;
+}
+.painel {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card-info {
+    width: 320px;
+    border: 1px solid #ccc;
+}
+.card-info mat-card-title {
+    border-bottom: 2px solid;
+}
+.borda-sinalizacao-normal {
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: 1px 1px 10px #1ee635;  
+}
+
+.borda-sinalizacao-alerta {
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: 1px 1px 10px #c9e92e;  
+}
+
+.borda-sinalizacao-critica {
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: 1px 1px 10px #ce4010;  
+}
+.info-numerica {
+    color: #555;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    width: 80px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px auto; 
+}
