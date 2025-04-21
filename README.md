@@ -1,25 +1,72 @@
-## AWS Amplify Angular.js Starter Template
+# 📊 Smart Flow 
 
-This repository provides a starter template for creating applications using Angular.js and AWS Amplify, emphasizing easy setup for authentication, API, and database capabilities.
+**Smart Flow** é um projeto desenvolvido para otimizar o fluxo de pacientes em prontos-socorros, utilizando tecnologias modernas para proporcionar uma experiência eficiente e escalável. O foco do projeto é a integração com dispositivos **IoT (Internet das Coisas)**, permitindo a coleta e exibição de dados em tempo real a partir de sensores e câmeras inteligentes.
 
-## Overview
+## 🚀 Tecnologias Utilizadas
 
-This template equips you with a foundational Angular.js application integrated with AWS Amplify, streamlined for scalability and performance. It is ideal for developers looking to jumpstart their project with pre-configured AWS services like Cognito, AppSync, and DynamoDB.
+- **Angular**: Framework para construção da interface de usuário.
+- **AWS Amplify**: Plataforma para desenvolvimento de aplicações web e mobile com backend escalável.
+- **TypeScript**: Linguagem de programação que adiciona tipagem estática ao JavaScript.
+- **SCSS**: Linguagem de extensão do CSS para estilos mais organizados e reutilizáveis.
+- **Angular Material**: Conjunto de componentes UI baseados no Material Design.
+- **AWS Cognito**: Serviço de autenticação e autorização de usuários.
+- **AWS AppSync**: Serviço para criação de APIs GraphQL escaláveis.
+- **AWS DynamoDB**: Banco de dados NoSQL totalmente gerenciado.
+- **IoT (Internet das Coisas)**: Coleta e envio de dados de sensores e câmeras inteligentes para monitoramento em tempo real.
 
-## Features
+## 📁 Estrutura do Projeto
 
-- **Authentication**: Setup with Amazon Cognito for secure user authentication.
-- **API**: Ready-to-use GraphQL endpoint with AWS AppSync.
-- **Database**: Real-time database powered by Amazon DynamoDB.
+```
+pi-smart-flow-rp/
+├── amplify/                 # Configurações do AWS Amplify
+├── src/                     # Código-fonte da aplicação Angular
+│   ├── app/                 # Componentes, serviços e módulos
+│   └── assets/              # Recursos estáticos
+├── .vscode/                 # Configurações do Visual Studio Code
+├── amplify.yml              # Configuração de build do Amplify
+├── angular.json             # Configuração do projeto Angular
+├── package.json             # Dependências e scripts do projeto
+└── README.md                # Documentação do projeto
+```
 
-## Deploying to AWS
+## 🔧 Configuração e Execução
 
-For detailed instructions on deploying your application, refer to the [deployment section](https://docs.amplify.aws/angular/start/quickstart/#deploy-a-fullstack-app-to-aws) of our documentation.
+1. **Clone o repositório:**
 
-## Security
+   ```bash
+   git clone https://github.com/AndreLuisCelis/pi-smart-flow-rp.git
+   cd pi-smart-flow-rp
+   ```
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+2. **Instale as dependências:**
 
-## License
+   ```bash
+   npm install
+   ```
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
+3. **Configure o AWS Amplify:**
+
+   Certifique-se de ter o [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) e o [Amplify CLI](https://docs.amplify.aws/cli/start/install/) instalados.
+
+   ```bash
+   amplify init
+   amplify pull
+   ```
+
+4. **Execute a aplicação:**
+
+   ```bash
+   ng serve
+   ```
+
+   Acesse a aplicação em `http://localhost:4200`.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [MIT-0 License](LICENSE).
+
+
+
+
+
+
