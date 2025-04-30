@@ -65,7 +65,7 @@ export class MonitoramentoComponent {
     const cardElements = document.querySelectorAll('.info-numerica');
     cardElements.forEach(cardElement => {
       cardElement.classList.add('sinalizar-alteracao');
-      setTimeout(() => cardElement.classList.remove('sinalizar-alteracao'), 500); // Remove the class after 1 second
+      setTimeout(() => cardElement.classList.remove('sinalizar-alteracao'), 500);
     });
   }
   ngOnDestroy(): void {

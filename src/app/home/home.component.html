@@ -5,8 +5,11 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>SmartFlow</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item  [routerLinkActive]="'link-actived'"routerLink="/home"> Monitoramento</a>
+      <a mat-list-item  [routerLinkActive]="'link-actived'"routerLink="home"> Recomendações</a>
       <a mat-list-item [routerLinkActive]="'link-actived'" routerLink="historico">Histórico</a>
+      <a mat-list-item [routerLinkActive]="'link-actived'" routerLink="monitoramento">
+        Monitoramento <div class="live-indicator"></div>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

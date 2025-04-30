@@ -1,6 +1,8 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { Observable, map, shareReplay } from 'rxjs';
 
 export interface infoHistoricoAtendiementos {
   tipoAtendimento: string;
@@ -10,10 +12,14 @@ export interface infoHistoricoAtendiementos {
 }
 
 const ATENDIMENTO_DATA: infoHistoricoAtendiementos[] = [
-  { tipoAtendimento: 'Clínica', totalAtendimentos: 100, tempoMedioEspera: '5 min', tempoMedioAtendimento: '15 min' },
-  { tipoAtendimento: 'Pediatria', totalAtendimentos: 20, tempoMedioEspera: '10 min', tempoMedioAtendimento: '20 min' },
-  { tipoAtendimento: 'Ortopedia', totalAtendimentos: 30, tempoMedioEspera: '15 min', tempoMedioAtendimento: '25 min' },
-  { tipoAtendimento: 'Emergência', totalAtendimentos: 30, tempoMedioEspera: '15 min', tempoMedioAtendimento: '25 min' },
+  { tipoAtendimento: 'Cardiologia', totalAtendimentos: 50, tempoMedioEspera: '8 min', tempoMedioAtendimento: '30 min' },
+  { tipoAtendimento: 'Neurologia', totalAtendimentos: 40, tempoMedioEspera: '12 min', tempoMedioAtendimento: '35 min' },
+  { tipoAtendimento: 'Dermatologia', totalAtendimentos: 25, tempoMedioEspera: '10 min', tempoMedioAtendimento: '20 min' },
+  { tipoAtendimento: 'Oftalmologia', totalAtendimentos: 15, tempoMedioEspera: '7 min', tempoMedioAtendimento: '18 min' },
+  { tipoAtendimento: 'Pediatria', totalAtendimentos: 30, tempoMedioEspera: '9 min', tempoMedioAtendimento: '25 min' },
+  { tipoAtendimento: 'Ortopedia', totalAtendimentos: 20, tempoMedioEspera: '11 min', tempoMedioAtendimento: '28 min' },
+  { tipoAtendimento: 'Ginecologia', totalAtendimentos: 35, tempoMedioEspera: '10 min', tempoMedioAtendimento: '32 min' },
+  { tipoAtendimento: 'Psiquiatria', totalAtendimentos: 18, tempoMedioEspera: '15 min', tempoMedioAtendimento: '40 min' },
 ];
 
 @Component({
@@ -28,8 +34,16 @@ export class HistoricoComponent {
   displayedColumns: string[] = ['tipoAtendimento', 'totalAtendimentos', 'tempoMedioEspera', 'tempoMedioAtendimento',];
   dataSource = ATENDIMENTO_DATA;
 
+  private breakpointObserver = inject(BreakpointObserver);
+  isXsmall$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.XSmall)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
   ngOnInit() {
     this.getData();
+    this.monitorarExibicaoColunas(); 
   }
   getData() {
     this.data.push(
@@ -51,7 +65,20 @@ export class HistoricoComponent {
     )
   }
 
-  gerarDataSource( dataSource:infoHistoricoAtendiementos[], x: number){
+  monitorarExibicaoColunas() {
+    this.isXsmall$.subscribe(isXsmall => {  
+      if (isXsmall) {
+        this.removerColunas();
+      } else {
+        this.displayedColumns = ['tipoAtendimento', 'totalAtendimentos', 'tempoMedioEspera', 'tempoMedioAtendimento'];
+        this.data.forEach(item => {
+          item.displayedColumns = [...this.displayedColumns];
+        });
+      }
+    }); 
+  }
+
+  gerarDataSource(dataSource: infoHistoricoAtendiementos[], x: number) {
     let copyDataSource = JSON.parse(JSON.stringify(dataSource)); // Faz uma cópia profunda do array
     copyDataSource = copyDataSource.map((item: any) => {
       item.tempoMedioAtendimento = this.substituirNumeroTempoPorAleatorio(item.tempoMedioAtendimento);
@@ -67,5 +94,14 @@ export class HistoricoComponent {
     if (!numeroAtual) return str; // Se não houver número, retorna original
     const novoNumero = Math.floor(Math.random() * 60) + 1;
     return str.replace(numeroAtual, novoNumero.toString());
+  }
+
+  removerColunas() {
+    this.displayedColumns = this.displayedColumns.filter((coluna) => coluna !== 'totalAtendimentos')
+      .filter((coluna) => coluna !== 'tempoMedioEspera');
+
+    this.data.forEach(item => {
+      item.displayedColumns = [...this.displayedColumns];
+    });
   }
 }

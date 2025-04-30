@@ -16,16 +16,17 @@
                 <td mat-cell *matCellDef="let element"> {{element.tipoAtendimento}} </td>
             </ng-container>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="totalAtendimentos">
+            <ng-container matColumnDef="totalAtendimentos" >
                 <th mat-header-cell *matHeaderCellDef> Total de Atendimentos </th>
                 <td mat-cell *matCellDef="let element"> {{element.totalAtendimentos}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
-            <ng-container matColumnDef="tempoMedioEspera">
-                <th mat-header-cell *matHeaderCellDef> Tempo Medio de Espera </th>
+            <ng-container matColumnDef="tempoMedioEspera" >
+                <div class="coluna-oculta">
+                    <th mat-header-cell *matHeaderCellDef> Tempo Medio de Espera </th>
                 <td mat-cell *matCellDef="let element"> {{element.tempoMedioEspera}} </td>
+                </div>
+
             </ng-container>
 
             <!-- Symbol Column -->
@@ -33,6 +34,7 @@
                 <th mat-header-cell *matHeaderCellDef> Tempo Medio do Atendiemento </th>
                 <td mat-cell *matCellDef="let element"> {{element.tempoMedioAtendimento}} </td>
             </ng-container>
+
             <tr mat-header-row *matHeaderRowDef="['item-description']"></tr>
             <tr mat-header-row *matHeaderRowDef="item.displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: item.displayedColumns;"></tr>
