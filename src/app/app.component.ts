@@ -27,7 +27,7 @@ translations['pt'] = {
   imports: [HomeComponent, AmplifyAuthenticatorModule],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'amplify-angular-template';
+  title ='smart-flow';
 
   @ViewChildren('amplify-authenticator')
   amplifyAuthenticator!: AuthenticatorComponent; // Replace with 'any' or the correct type if known
